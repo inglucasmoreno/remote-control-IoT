@@ -1,3 +1,3 @@
 # remote-control-IoT
 
-Control de Arduino via desde servidor web
+Control de Arduino via servidor web
