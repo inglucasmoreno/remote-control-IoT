@@ -22,11 +22,11 @@ export const login = async (req, res) => {
        
         // Se determina si el usuario esta registrado
         const usuario = await Usuario.findOne({dni});
-        if(!usuario) return error(res, 400, 'Datos incorrectos');    
+        if(!usuario) return error(res, 400, 'Los datos son incorrectos');    
 
         // Se corrobora que la contraseña es correcta
         const passwordCorrecto = await bcryptjs.compare(password, usuario.password);
-        if(!passwordCorrecto) return error(res, 400, 'Datos incorrectos');
+        if(!passwordCorrecto) return error(res, 400, 'Los datos son incorrectos');
 
         //Se genera el token
         const token = generarToken(usuario, process.env.SECRETA || 'Equimotica', '24h');
